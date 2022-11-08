@@ -11,13 +11,16 @@ public class FactoryBrowser {
         IBrowser browser;
         switch (browserType.toLowerCase()){
             case "chrome":
-                browser = new Chrome();
+                browser= new Chrome();
                 break;
             case "headless":
-                browser = new Headless();
+                browser=new Headless();
+                break;
+            case "grid":
+                browser=new Grid();
                 break;
             default:
-                browser = new Firefox();
+                browser= new Firefox();
                 break;
         }
         return browser;

@@ -2,10 +2,7 @@ package testSuite.todoly;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import page.todoly.LoginSection;
-import page.todoly.MainPage;
-import page.todoly.MenuSection;
-import page.todoly.ProjectSection;
+import page.todoly.*;
 import session.Session;
 import util.GetProperties;
 
@@ -15,6 +12,9 @@ public class TestBase {
     MenuSection menuSection = new MenuSection();
     ProjectSection projectSection= new ProjectSection();
 
+    SettingsSection settingsSection = new SettingsSection();
+
+    SignUpSection signUpSection= new SignUpSection();
     // todo property file
     String user=GetProperties.getInstance().getUser();
     String password =GetProperties.getInstance().getPwd();
