@@ -2,6 +2,7 @@ package control;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import session.Session;
@@ -23,6 +24,12 @@ public class Control {
     public void click(){
         this.find();
         control.click();
+    }
+
+    public void rightClick() {
+        this.find();
+        Actions action = new Actions(Session.getInstance().getBrowser());
+        action.contextClick(control).perform();
     }
 
     public boolean isControlDisplayed(){

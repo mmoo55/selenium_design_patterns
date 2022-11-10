@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 public class LoginPage {
     public TextBox emailTxtBox = new TextBox(By.xpath("//input[@placeholder='Introduce tu email...']"));
-    public TextBox passwordTxtBox = new TextBox(By.xpath("//input[@placeholder='Introduce tu contraseña...']"));
+    public TextBox passwordTxtBox = new TextBox(By.xpath("//input[contains(@placeholder,'Introduce tu contra')]"));
     public Button iniciarSesionButton = new Button(By.xpath("//form/button"));
 
     public void login(String email, String pwd){
