@@ -13,7 +13,7 @@ public class CRUDTaskTestTodoist extends TestBase {
 
         String projectCreated = "Prueba" + new Date().getTime();
         String taskCreated = "Prueba" + new Date().getTime();
-        String taskUpdated = "Nuevo nombre" + new Date().getTime();
+        String taskUpdated = "  Nuevo nombre editado";
 
         mainPage.loginLabel.click();
         loginPage.login(user, password);
@@ -33,15 +33,14 @@ public class CRUDTaskTestTodoist extends TestBase {
         // UPDATE
         taskSection.clickOnTask(taskCreated);
         taskModalSection.clickOnTask(taskCreated);
-        //taskModalSection.editTaskTxtBox.waitControlIsNotInThePage();
-        taskModalSection.editTaskTxtBox.cleanSetText(taskUpdated);
+        taskModalSection.editTaskTxtBox.setText(taskUpdated);
         //Session.getInstance().getBrowser().manage().
         taskModalSection.saveTaskButton.click();
         taskModalSection.closeTaskModalButton.click();
-        Assertions.assertTrue(taskSection.isProjectDisplayedInList(taskUpdated), "ERROR! the task was not updated");
+        Assertions.assertTrue(taskSection.isProjectDisplayedInList(taskCreated+taskUpdated), "ERROR! the task was not updated");
 
         // DELETE
-        taskSection.getTask(taskUpdated).click();
+        taskSection.getTask(taskCreated+taskUpdated).click();
         taskModalSection.taskModalMenuButton.click();
         taskModalMenu.deleteTaskButton.click();
         createUpdateDeleteProjectSection.addSaveDeleteButton.click();

@@ -8,10 +8,10 @@ import org.openqa.selenium.By;
 public class TaskModalSection {
     public Label nameTaskLabel;
 
-    public TextBox editTaskTxtBox = new TextBox(By.xpath("//div[@class='task_editor__content_field no-focus-marker']//div/span"));
-    public Button saveTaskButton = new Button(By.xpath("//button[@data-testid = 'task-editor-submit-button']"));
+    public TextBox editTaskTxtBox = new TextBox(By.xpath("//div[@data-dialog]//div[contains(@class, 'public-DraftStyleDefault-block')]"));
+    public Button saveTaskButton = new Button(By.xpath("//div[@data-dialog]//button[@type='submit']/span[text()='Guardar']"));
     public Button closeTaskModalButton = new Button(By.xpath("//button[@aria-label = 'Cerrar ventana']"));
-    public Button taskModalMenuButton = new Button(By.xpath("//div[@data-testid='button-container']//button[@aria-haspopup='menu']"));
+    public Button taskModalMenuButton = new Button(By.xpath("//div[@data-dialog]//div[@data-testid='button-container']//button[@aria-haspopup='menu']"));
 
     public TaskModalSection(){}
 

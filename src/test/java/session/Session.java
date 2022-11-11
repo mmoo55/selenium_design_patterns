@@ -30,4 +30,12 @@ public class Session {
     public void acceptAlert() {
         browser.switchTo().alert().accept();
     }
+
+    public void changeFrame(String idFrame) {
+        browser.switchTo().frame(idFrame);
+    }
+
+    public void backToPrincipalPage() {
+        browser.switchTo().defaultContent();
+    }
 }
