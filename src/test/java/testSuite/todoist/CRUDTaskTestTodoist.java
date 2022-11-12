@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import session.Session;
 
+import java.time.Duration;
 import java.util.Date;
 
 public class CRUDTaskTestTodoist extends TestBase {
@@ -31,10 +32,10 @@ public class CRUDTaskTestTodoist extends TestBase {
         Assertions.assertTrue(taskSection.isProjectDisplayedInList(taskCreated), "ERROR! the task was not created");
 
         // UPDATE
+        Session.getInstance().getBrowser().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         taskSection.clickOnTask(taskCreated);
         taskModalSection.clickOnTask(taskCreated);
         taskModalSection.editTaskTxtBox.setText(taskUpdated);
-        //Session.getInstance().getBrowser().manage().
         taskModalSection.saveTaskButton.click();
         taskModalSection.closeTaskModalButton.click();
         Assertions.assertTrue(taskSection.isProjectDisplayedInList(taskCreated+taskUpdated), "ERROR! the task was not updated");
