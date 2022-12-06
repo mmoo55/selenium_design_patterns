@@ -8,7 +8,7 @@ import java.util.Date;
 public class CRUDProjectTestTodoist extends TestBase{
 
     @Test
-    public void verifyCRUDProject() throws InterruptedException {
+    public void verifyCRUDProject() {
         String projectCreated = "Prueba" + new Date().getTime();
         String projectUpdated = "Nuevo nombre" + new Date().getTime();
 

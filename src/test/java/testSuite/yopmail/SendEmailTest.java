@@ -9,32 +9,27 @@ import java.util.Date;
 public class SendEmailTest extends TestBase{
 
      @Test
-    public void verifySentEmail(){
-         String emailAddress = email+"@yopmail.com";
-         String emailSubject = "Prueba " + new Date().getTime();
-         String emailMessageBody = "Prueba";
+    public void verifySentEmail() {
 
-         String firstFrame;
+        String emailAddress = email+"@yopmail.com";
+        String emailSubject = "Prueba " + new Date().getTime();
+        String emailMessageBody = "Prueba";
 
-         mainPage.emailLoginTxtBox.setText(email);
-         mainPage.sendEmailLoginButton.click();
-         Assertions.assertTrue(emailSection.emailTitle.isControlDisplayed(), "ERROR! the login was faield");
+        mainPage.emailLoginTxtBox.setText(email);
+        mainPage.sendEmailLoginButton.click();
+        Assertions.assertTrue(emailSection.emailTitle.isControlDisplayed(), "ERROR! the login was faield");
 
-         emailSection.newMailButton.click();
-         //Session.getInstance().getBrowser().switchTo().frame("ifmail");
-         //Session.getInstance().changeFrame("ifinbox");
-         Session.getInstance().changeFrame("ifmail");
+        emailSection.newMailButton.click();
 
-         messageSection.recipientTxtBox.setText(emailAddress);
-         messageSection.subjectTxtBox.setText(emailSubject);
-         messageSection.messageBodyTxtBox.setText(emailMessageBody);
-         Assertions.assertTrue(messageSection.popMessageLabel.isControlDisplayed(), "ERROR! the message was not sent");
+        Session.getInstance().changeFrame("ifmail");
+        messageSection.recipientTxtBox.setText(emailAddress);
+        messageSection.subjectTxtBox.setText(emailSubject);
+        messageSection.messageBodyTxtBox.setText(emailMessageBody);
+        messageSection.sendEmailButton.click();
 
-         //Session.getInstance().getBrowser().switchTo().defaultContent();
-         Session.getInstance().changeFrame("ifinbox");
-         emailSection.refreshButton.click();
-         Assertions.assertTrue(emailSection.emailButton.isControlDisplayed(), "ERROR! the message was not sent");
-
-
+        Session.getInstance().getBrowser().switchTo().defaultContent();
+        emailSection.refreshButton.click();
+        Session.getInstance().changeFrame("ifinbox");
+        Assertions.assertTrue(emailSection.emailLabel.isControlDisplayed(), "ERROR! the message was not sent");
      }
 }

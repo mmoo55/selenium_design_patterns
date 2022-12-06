@@ -14,13 +14,13 @@ public class TaskSection {
     public TaskSection(){}
 
     public void clickOnTask(String nameTask){
-        Label taskCreated = new Label(By.xpath("//div[text()='"+nameTask+"']"));
-        taskCreated.click();
+        nameTaskLabel = new Label(By.xpath("//div[text()='"+nameTask+"']"));
+        nameTaskLabel.click();
     }
 
     public void rightClickOnProject(String nameTask) {
-        Label taskCreated = new Label(By.xpath("//div[text()='"+nameTask+"']"));
-        taskCreated.rightClick();
+        nameTaskLabel = new Label(By.xpath("//div[text()='"+nameTask+"']"));
+        nameTaskLabel.rightClick();
     }
 
     public boolean isProjectDisplayedInList(String nameTask){
@@ -29,7 +29,7 @@ public class TaskSection {
     }
 
     public Label getTask(String nameTask){
-        Label taskCreated = new Label(By.xpath("//div[text()='"+nameTask+"']"));
-        return taskCreated;
+        nameTaskLabel = new Label(By.xpath("//div[text()='"+nameTask+"']"));
+        return nameTaskLabel;
     }
 }
