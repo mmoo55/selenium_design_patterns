@@ -19,7 +19,18 @@ services:
       - "4443:4443"
       - "4444:4444"
 
+  automation-web:
+    build: .
+    container_name: automation-web
+    depends_on:
+      - selenium-hub
+      - chrome
+    environment:
+      - NAME_TEST=CRUDProjectTest
+
 # descarga e inicia :  docker-compose -f docker-compose-auto.yml up -d
 # ver si inicio correctamente :  docker-compose -f docker-compose-auto.yml  ps
-# docker ps -a
-# docker rm -f (CONTAINER-ID)
+# Lista de contenedores: docker ps -a
+# Borrar contenedor: docker rm -f (CONTAINER-ID)
+# poner en un archivo ".end" para parametrizar las variables de entorno como, NAME_TEST
+# Construir el contenedor: docker-compose -f docker-compose-auto.yml build (NOMBRE CONTAINER)
