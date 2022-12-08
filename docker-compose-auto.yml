@@ -33,7 +33,9 @@ services:
 # ver si inicio correctamente: docker-compose -f docker-compose-auto.yml  ps
 # Lista de contenedores: docker ps -a
 # Borrar contenedor: docker rm -f (CONTAINER-ID)
-# poner en un archivo ".end" para parametrizar las variables de entorno como, NAME_TEST
+
+# poner en un archivo ".end" o ".env" para parametrizar las variables de entorno como, NAME_TEST
+
 # Construir el contenedor (Crear imagen): docker-compose -f docker-compose-auto.yml build (NOMBRE CONTAINER)
 # Primera forma de ejecutar todos lo comandos del Dockerfile: docker build .
 # Segunda forma de ejecutar
