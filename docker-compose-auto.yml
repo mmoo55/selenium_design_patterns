@@ -28,9 +28,20 @@ services:
     environment:
       - NAME_TEST=CRUDProjectTest
 
-# descarga e inicia :  docker-compose -f docker-compose-auto.yml up -d
-# ver si inicio correctamente :  docker-compose -f docker-compose-auto.yml  ps
+# descarga e inicia:  docker-compose -f docker-compose-auto.yml up -d
+# descarga e inicia los contenedores:  docker-compose -f docker-compose-auto.yml up -d chrome selenium-hub (Nombre de los contenedores)
+# ver si inicio correctamente: docker-compose -f docker-compose-auto.yml  ps
 # Lista de contenedores: docker ps -a
 # Borrar contenedor: docker rm -f (CONTAINER-ID)
 # poner en un archivo ".end" para parametrizar las variables de entorno como, NAME_TEST
-# Construir el contenedor: docker-compose -f docker-compose-auto.yml build (NOMBRE CONTAINER)
+# Construir el contenedor (Crear imagen): docker-compose -f docker-compose-auto.yml build (NOMBRE CONTAINER)
+# Primera forma de ejecutar todos lo comandos del Dockerfile: docker build .
+# Segunda forma de ejecutar
+
+# La palabra "image" en la construccion del docker-compose, significa que ira a buscar una imagen a dockerhub
+# La palabra "bild ." significa que generara localmente la imagen, desde el archivo Dockerfile
+
+# Ejemplo con el nuevo contenedor
+## Levantar los contenedores chrome, selenium-hub: docker-compose -f docker-compose-auto.yml up -d chrome selenium-hub
+## Crear la imagen del nuevo contenedor: docker compose -f docker-compose-auto.yml build automation-web
+## Iniciamos el nuevo contenedor: docker compose -f docker-compose-auto.yml up automation-web
